@@ -2,7 +2,7 @@
 ** File:
 **   $Id: utf_test_sch.c 1.3 2015/03/01 14:01:26EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -43,14 +43,6 @@
 *************************************************************************/
 #include "cfe.h"
 
-#include "sch_platform_cfg.h"
-#include "sch_msgids.h"
-
-#include "sch_app.h"           /* Application headers */
-#include "sch_cmds.h"
-#include "sch_custom.h"
-#include "sch_api.h"
-
 #include "cfe_es_cds.h"        /* cFE headers         */
 #include "cfe_tbl_internal.h"
 #include "cfe_time_msg.h"
@@ -67,6 +59,12 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <math.h>
+#include "../../../SCH/fsw/platform_inc/sch_msgids.h"
+#include "../../../SCH/fsw/platform_inc/sch_platform_cfg.h"
+#include "../../../SCH/fsw/public_inc/sch_api.h"
+#include "../../../SCH/fsw/src/sch_app.h"           /* Application headers */
+#include "../../../SCH/fsw/src/sch_cmds.h"
+#include "../../../SCH/fsw/src/sch_custom.h"
 
 /************************************************************************
 ** Macro Definitions

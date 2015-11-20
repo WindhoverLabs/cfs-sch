@@ -1,7 +1,7 @@
 /*
 ** $Id: sch_def_msgtbl8.c 1.2 2015/03/01 14:01:31EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -33,13 +33,12 @@
 **
 **************************************************************************/
 
+#include "../../../../../SCH/fsw/platform_inc/sch_msgids.h"
+#include "../../../../../SCH/fsw/platform_inc/sch_platform_cfg.h"
+#include "../../../../../SCH/fsw/src/sch_tbldefs.h"
 #include "cfe.h"
 #include "cfe_tbl_filedef.h"
-#include "sch_platform_cfg.h"
-#include "sch_tbldefs.h"
-
 #include "cfe_msgids.h"
-#include "sch_msgids.h"
 
 
 

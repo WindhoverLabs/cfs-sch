@@ -1,7 +1,7 @@
 /*
 ** $Id: sch_custom.c 1.3 2015/03/01 14:01:44EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -35,10 +35,9 @@
 #include "cfe.h"
 #include "sch_platform_cfg.h"
 
-#include "sch_app.h"
-
 #include "cfe_time_msg.h"
 #include "cfe_psp.h"
+#include "sch_app.h"
 
 
 /*************************************************************************

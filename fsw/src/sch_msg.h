@@ -1,7 +1,7 @@
 /*
 ** $Id: sch_msg.h 1.5 2015/03/01 14:01:43EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -45,8 +45,8 @@
 **
 **************************************************************************/
 
+#include "../../../SCH/fsw/src/sch_msgdefs.h"
 #include "common_types.h"
-#include "sch_msgdefs.h"
 
 /*************************************************************************
 **

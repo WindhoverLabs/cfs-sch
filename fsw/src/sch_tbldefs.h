@@ -1,7 +1,7 @@
 /*
 ** $Id: sch_tbldefs.h 1.2 2015/03/01 14:02:06EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -38,6 +38,12 @@
 ** SCH table structure definitions
 **
 **************************************************************************/
+
+#define SCH_FIX_MID(x) \
+	((((x) & 0x00ff) << 8) + (((x) & 0xff00) >> 8))
+
+#define SCH_FIX_LEN(x) \
+	((((x) & 0x00ff) << 8) + (((x) & 0xff00) >> 8))
 
 /*
 ** Schedule definition table entry

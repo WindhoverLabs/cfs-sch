@@ -1,7 +1,7 @@
 /*
 ** $Id: sch_cmds.c 1.5 2015/03/01 14:01:41EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -36,16 +36,16 @@
 **
 **************************************************************************/
 
+#include "sch_cmds.h"
+
 #include "cfe.h"
 #include "sch_msgids.h"
 
-#include "sch_msg.h"
-#include "sch_events.h"
-#include "sch_app.h"
-#include "sch_cmds.h"
-#include "sch_version.h"
-
 #include "cfe_time_msg.h"
+#include "sch_app.h"
+#include "sch_events.h"
+#include "sch_msg.h"
+#include "sch_version.h"
 
 
 /*************************************************************************

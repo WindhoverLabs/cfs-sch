@@ -2,7 +2,7 @@
 ** File:
 **   $Id: sch_app.h 1.7 2015/03/01 14:01:45EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -43,9 +43,9 @@
 **
 **************************************************************************/
 
+#include "../../../SCH/fsw/src/sch_msg.h"
+#include "../../../SCH/fsw/src/sch_tbldefs.h"
 #include "cfe.h"
-#include "sch_msg.h"
-#include "sch_tbldefs.h"
 
 /*************************************************************************
 **

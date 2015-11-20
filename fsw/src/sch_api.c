@@ -1,7 +1,7 @@
 /*
 ** $Id: sch_api.c 1.4 2015/03/01 14:01:58EST sstrege Exp  $
 **
-**  Copyright © 2007-2014 United States Government as represented by the 
+**  Copyright ï¿½ 2007-2014 United States Government as represented by the 
 **  Administrator of the National Aeronautics and Space Administration. 
 **  All Other Rights Reserved.  
 **
@@ -34,8 +34,8 @@
 */
 
 #include "sch_api.h"
-#include "sch_apipriv.h"
 #include "sch_platform_cfg.h"
+#include "sch_apipriv.h"
 
 /*
 ** Exported data
