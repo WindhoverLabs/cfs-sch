@@ -59,12 +59,12 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <math.h>
-#include "../../../SCH/fsw/platform_inc/sch_msgids.h"
-#include "../../../SCH/fsw/platform_inc/sch_platform_cfg.h"
-#include "../../../SCH/fsw/public_inc/sch_api.h"
-#include "../../../SCH/fsw/src/sch_app.h"           /* Application headers */
-#include "../../../SCH/fsw/src/sch_cmds.h"
-#include "../../../SCH/fsw/src/sch_custom.h"
+#include "sch_msgids.h"
+#include "sch_platform_cfg.h"
+#include "sch_api.h"
+#include "sch_app.h"           /* Application headers */
+#include "sch_cmds.h"
+#include "sch_custom.h"
 
 /************************************************************************
 ** Macro Definitions

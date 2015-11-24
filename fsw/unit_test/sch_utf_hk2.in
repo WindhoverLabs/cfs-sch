@@ -13,8 +13,8 @@
 ;   These tests assume the following Message and Command ID
 ;   settings in the SCH code:
 ;
-;    SCH_CMD_MID      = 0x1895    
-;    SCH_SEND_HK_MID  = 0x1896
+;    SCH_CMD_MID      = 0x19e4  
+;    SCH_SEND_HK_MID  = 0x19e5
 ;
 ;   $Log: sch_utf_hk2.in  $
 ;   Revision 1.1 2008/10/16 15:10:20EDT dkobe 
@@ -38,7 +38,7 @@
 *!    Last Sync MET Slot Number         = 43
 *!    Sync To MET                (0x01) = Minor Frame: YES, Major Frame: NO
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 1.430
 *! Expect to see:
@@ -60,7 +60,7 @@
 *!    Table Pass Counter                = 1
 *!    Valid Major Frame Counter         = 2
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule
 *! Expect to see:
@@ -77,7 +77,7 @@
 *!    Table Pass Counter                = 2
 *!    Missed Major Frame Counter        = 1
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule
 *! Expect to see:
@@ -101,7 +101,7 @@
 *!    Table Pass Counter                = 3
 *!    Valid Major Frame Counter         = 3
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 4.430
 *! Expect to see:
@@ -118,7 +118,7 @@
 *!    Table Pass Counter                = 4
 *!    Missed Major Frame Counter        = 2
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 5.430
 *! Expect to see:
@@ -134,7 +134,7 @@
 *!    Table Pass Counter                = 5
 *!    Missed Major Frame Counter        = 3
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 ;
 ; Force CFE_SB_RcvMsg to return CFE_SB_PIPE_RD_ERR 
 ; that will exit app (SHOULD BE LAST IN SCRIPT)
@@ -147,7 +147,7 @@
 *!    EVENT ID=2
 *! -----------------------------------------
 @ SET_SB_RETURN_CODE 5 0xca000006
-1895 C000 0001 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
 *
 *! ***END SCH SB COMMAND TESTING***
 *-------------------------------

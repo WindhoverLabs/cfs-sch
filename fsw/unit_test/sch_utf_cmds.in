@@ -13,8 +13,8 @@
 ;   These tests assume the following Message and Command ID
 ;   settings in the SCH code:
 ;
-;    SCH_CMD_MID      = 0x1895    
-;    SCH_SEND_HK_MID  = 0x1896
+;    SCH_CMD_MID      = 0x19e4  
+;    SCH_SEND_HK_MID  = 0x19e5
 ;
 ;   $Log: sch_utf_cmds.in  $
 ;   Revision 1.1 2008/10/16 15:10:18EDT dkobe 
@@ -27,53 +27,53 @@
 *
 *! Housekeeping Request @ 0.990-0
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! NOOP Command Test @ 0.990
 *! Expect to see:
 *!    EVENT ID=40 for each command
 *! -----------------
-1895 C000 0001 0000    ; NOOP Command
-1895 C000 0001 0000    ; NOOP Command
-1895 C000 0001 0000    ; NOOP Command
-1895 C000 0001 0000    ; NOOP Command
-1895 C000 0001 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
 *
 *! Housekeeping Request @ 0.990-1
 *! Expect to see:
 *!    Command Counter = 5
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! NOOP Command With Invalid Length Test @ 0.990
 *! Expect to see:
 *!   EVENT ID=60
 *! ---------------------------------------------
-1895 C000 0007 0000 1234 FFFF 7FFF  ; Bad NOOP Command
+e419 00c0 0700 0000 1234 FFFF 7FFF  ; Bad NOOP Command
 *
 *! Housekeeping Request @ 0.990-2
 *! Expect to see:
 *!    Command Error Counter = 1
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Housekeeping Request With Invalid Length Test @ 0.990
 *! Expect to see:
 *!    EVENT ID=60
 *! ---------------------------------------------
-1896 C000 0007 0000 1234 FFFF 7FFF  ; Bad Housekeeping Request
+e519 00c0 0700 0000 1234 FFFF 7FFF  ; Bad Housekeeping Request
 *
 *! Housekeeping Request @ 0.990-3
 *! Expect to see:
 *!    No Changes
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Reset Counters Command Test
 *! Expect to see:
 *!    EVENT ID=41
 *! ---------------------------
-1895 C000 0001 0100    ; Reset Counters Command
+e419 00c0 0100 0100    ; Reset Counters Command
 *
 *! Housekeeping Request @ 0.990-4
 *! Expect to see:
@@ -85,19 +85,19 @@
 *!    Table Verification Success Ctr    = 0
 *!    Valid Major Frame Counter         = 0
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Reset Counters Command With Invalid Length Test
 *! Expect to see:
 *!    EVENT ID=60
 *! -----------------------------------------------
-1895 C000 0007 0100 1234 FFFF 7FFF  ; Bad Reset Counters Command
+e419 00c0 0700 0100 1234 FFFF 7FFF  ; Bad Reset Counters Command
 *
 *! Housekeeping Request @ 0.990-5
 *! Expect to see:
 *!    Command Error Counter = 1
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
@@ -111,19 +111,19 @@
 *!      Slot 15 - Entry 1 - Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 0.990-6
 *! Expect to see:
 *!    Command Counter = 1
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Command (Slot #2, Entry #0)
 *! Expect to see:
 *!    EVENT ID=42
 *! -------------------------------------
-1895 C000 0005 0200 0002 0000  ; Enable Activity Command
+e419 00c0 0500 0200 0002 0000  ; Enable Activity Command
 *
 *! Process Schedule 1.000 - 1.990
 *! Expect to see:
@@ -139,7 +139,7 @@
 *!    Slot 2 - Entry 0 - Disabled to Enabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 1.990-0
 *! Expect to see:
@@ -150,93 +150,93 @@
 *!    Table Pass Counter                = 1
 *!    Valid Major Frame Counter         = 1
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Command with Bad Slot # (Slot #100, Entry #0)
 *! Expect to see:
 *!    EVENT ID=50
 *! -------------------------------------
-1895 C000 0005 0200 0064 0000   ; Bad Enable Activity Command
+e419 00c0 0500 0200 0064 0000   ; Bad Enable Activity Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 1.990-1
 *! Expect to see:
 *!    Command Counter                   = 4
 *!    Command Error Counter             = 2
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Command with Bad Entry # (Slot #2, Entry #5)
 *! Expect to see:
 *!    EVENT ID=50
 *! -------------------------------------
-1895 C000 0005 0200 0002 0005   ; Bad Enable Activity Command
+e419 00c0 0500 0200 0002 0005   ; Bad Enable Activity Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 1.990-2
 *! Expect to see:
 *!    Command Counter                   = 5
 *!    Command Error Counter             = 3
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Command with Unused Activity (Slot #2, Entry #4)
 *! Expect to see:
 *!    EVENT ID=51
 *! -------------------------------------
-1895 C000 0005 0200 0002 0004   ; Enable Activity Command (in Err because of Tbl)
+e419 00c0 0500 0200 0002 0004   ; Enable Activity Command (in Err because of Tbl)
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 1.990-3
 *! Expect to see:
 *!    Command Counter                   = 6
 *!    Command Error Counter             = 4
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Command with Length Error
 *! Expect to see:
 *!    EVENT ID=60
 *! -------------------------------------
-1895 C000 0001 0200    ; Bad Enable Activity Command
+e419 00c0 0100 0200    ; Bad Enable Activity Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 1.990-4
 *! Expect to see:
 *!    Command Counter                   = 7
 *!    Command Error Counter             = 5
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Command (Slot #2, Entry #0)
 *! Expect to see:
 *!    EVENT ID=43
 *! -------------------------------------
-1895 C000 0005 0300 0002 0000   ; Disable Activity Command
+e419 00c0 0500 0300 0002 0000   ; Disable Activity Command
 *
 *! Process Schedule 2.000 - 2.990
 *! Expect to see:
@@ -250,7 +250,7 @@
 *!    Slot 2 - Entry 0 - Enabled to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 2.990-0
 *! Expect to see:
@@ -261,93 +261,93 @@
 *!    Table Pass Counter                = 2
 *!    Valid Major Frame Counter         = 2
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Disable Activity Command with Bad Slot # (Slot #100, Entry #0)
 *! Expect to see:
 *!    EVENT ID=52
 *! -------------------------------------
-1895 C000 0005 0300 0064 0000   ; Bad Disable Activity Command
+e419 00c0 0500 0300 0064 0000   ; Bad Disable Activity Command
 *
 *! Housekeeping Request @ 2.990-1
 *! Expect to see:
 *!    Command Counter                   = 10
 *!    Command Error Counter             = 6
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Command with Bad Entry # (Slot #2, Entry #5)
 *! Expect to see:
 *!    EVENT ID=52
 *! -------------------------------------
-1895 C000 0005 0300 0002 0005   ; Bad Disable Activity Command
+e419 00c0 0500 0300 0002 0005   ; Bad Disable Activity Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 2.990-2
 *! Expect to see:
 *!    Command Counter                   = 11
 *!    Command Error Counter             = 7
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Command with Unused Activity (Slot #2, Entry #4)
 *! Expect to see:
 *!    EVENT ID=53
 *! -------------------------------------
-1895 C000 0005 0300 0002 0004   ; Disable Activity Command (in Err because of Tbl)
+e419 00c0 0500 0300 0002 0004   ; Disable Activity Command (in Err because of Tbl)
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 2.990-3
 *! Expect to see:
 *!    Command Counter                   = 12
 *!    Command Error Counter             = 8
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Command with Length Error
 *! Expect to see:
 *!    EVENT ID=60
 *! -------------------------------------
-1895 C000 0001 0300    ; Bad Disable Activity Command
+e419 00c0 0100 0300    ; Bad Disable Activity Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 2.990-4
 *! Expect to see:
 *!    Command Counter                   = 13
 *!    Command Error Counter             = 9
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Group Command (Group #1, Multi-Group NONE)
 *! Expect to see:
 *!    EVENT ID=44
 *! -------------------------------------
-1895 C000 0005 0400 0000 0100   ; Enable Activity Group Command
+e419 00c0 0500 0400 0000 0100   ; Enable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
@@ -355,7 +355,7 @@
 *!    Slot 15 - Entry 1 - Disabled to Enabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Process Schedule 3.000-3.990
 *! Expect to see:
@@ -392,7 +392,7 @@
 *!    Slot 90 - Entry 0 - Unused to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Corrupt Table - Frequency = 0
 *! Expect to see:
@@ -415,7 +415,7 @@
 *!    Slot 90 - Entry 1 - Unused to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Corrupt Table - Type != Send Message
 *! Expect to see:
@@ -437,7 +437,7 @@
 *!    Slot 90 - Entry 2 - Unused to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Corrupt Table - Remainder = Frequency
 *! Expect to see:
@@ -459,7 +459,7 @@
 *! Expect to see:
 *!    Slot 90 - Entry 3 - Unused to Disabled
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 8.990-0
 *! Expect to see:
@@ -471,80 +471,80 @@
 *!    Table Pass Counter                = 8
 *!    Valid Major Frame Counter         = 8
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Group Command (Length Error)
 *! Expect to see:
 *!    EVENT ID=60
 *! -------------------------------------
-1895 C000 0001 0400    ; Enable Activity Group Command
+e419 00c0 0100 0400    ; Enable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 8.990-1
 *! Expect to see:
 *!    Command Counter                   = 20
 *!    Command Error Counter             = 10
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Group Command (No Group Specified Error)
 *! Expect to see:
 *!    EVENT ID=54
 *! -------------------------------------
-1895 C000 0005 0400 0000 0000   ; Enable Activity Group Command
+e419 00c0 0500 0400 0000 0000   ; Enable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 8.990-2
 *! Expect to see:
 *!    Command Counter                   = 21
 *!    Command Error Counter             = 11
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Group Command (Group Not Found Error [Group #16])
 *! Expect to see:
 *!    EVENT ID=55
 *! -------------------------------------
-1895 C000 0005 0400 0000 1000   ; Enable Activity Group Command
+e419 00c0 0500 0400 0000 1000   ; Enable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 8.990-3
 *! Expect to see:
 *!    Command Counter                   = 22
 *!    Command Error Counter             = 12
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Group Command (Group NONE, Multi-Group 0101B)
 *! Expect to see:
 *!    EVENT ID=44
 *! -------------------------------------
-1895 C000 0005 0400 0005 0000   ; Enable Activity Group Command
+e419 00c0 0500 0400 0005 0000   ; Enable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    Slot 15 - Entry 0 - Disabled to Enabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Process Schedule 9.000-9.990
 *! Expect to see:
@@ -571,13 +571,13 @@
 *!    Table Pass Counter                = 10
 *!    Valid Major Frame Counter         = 10
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Activity Group Command (Group Not Found Error [Multi-Group #1000B])
 *! Expect to see:
 *!    EVENT ID=44
 *! -------------------------------------
-1895 C000 0005 0400 0008 0000   ; Enable Activity Group Command
+e419 00c0 0500 0400 0008 0000   ; Enable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
@@ -587,19 +587,19 @@
 *!    Slot 90 - Entry 3 - Disabled to Enabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 10.990-1
 *! Expect to see:
 *!    Command Counter                   = 26
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Group Command (Group #1, Multi-Group NONE)
 *! Expect to see:
 *!    EVENT ID=45
 *! -------------------------------------
-1895 C000 0005 0500 0000 0100   ; Disable Activity Group Command
+e419 00c0 0500 0500 0000 0100   ; Disable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
@@ -607,7 +607,7 @@
 *!    Slot 15 - Entry 1 - Enabled to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Process Schedule 11.000-11.990
 *! Expect to see:
@@ -650,13 +650,13 @@
 *!    Table Pass Counter                = 14
 *!    Valid Major Frame Counter         = 14
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Group Command (Length Error)
 *! Expect to see:
 *!    EVENT ID=60
 *! -------------------------------------
-1895 C000 0001 0500    ; Disable Activity Group Command
+e419 00c0 0100 0500    ; Disable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
@@ -666,60 +666,60 @@
 *!    Slot 90 - Entry 3 - Enabled to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 14.990-1
 *! Expect to see:
 *!    Command Counter                   = 29
 *!    Command Error Counter             = 13
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Group Command (No Group Specified Error)
 *! Expect to see:
 *!    EVENT ID=56
 *! -------------------------------------
-1895 C000 0005 0500 0000 0000   ; Disable Activity Group Command
+e419 00c0 0500 0500 0000 0000   ; Disable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 14.990-2
 *! Expect to see:
 *!    Command Counter                   = 30
 *!    Command Error Counter             = 14
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Group Command (Group Not Found Error [Group #16])
 *! Expect to see:
 *!    EVENT ID=57
 *! -------------------------------------
-1895 C000 0005 0500 0000 1000   ; Disable Activity Group Command
+e419 00c0 0500 0500 0000 1000   ; Disable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 14.990-3
 *! Expect to see:
 *!    Command Counter                   = 31
 *!    Command Error Counter             = 15
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Disable Activity Group Command (Group NONE, Multi-Group 0101B)
 *! Expect to see:
 *!    EVENT ID=45
 *! -------------------------------------
-1895 C000 0005 0500 0005 0000   ; Disable Activity Group Command
+e419 00c0 0500 0500 0005 0000   ; Disable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
@@ -729,7 +729,7 @@
 *!    Slot 15 - Entry 0 - Enabled to Disabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Process Schedule 15.000-15.990
 *! Expect to see:
@@ -741,14 +741,14 @@
 *! Expect to see:
 *!    EVENT ID=42
 *! -------------------------------------
-1895 C000 0005 0200 0000 0000  ; Enable Activity Command
+e419 00c0 0500 0200 0000 0000  ; Enable Activity Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    Slot 0 - Entry 0 - Disabled to Enabled
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Process Schedule 16.000-16.990
 *! Expect to see:
@@ -773,7 +773,7 @@
 *!    Next Minor Frame Number           = 49
 *!    Unexpected Major Frame Detected   = TRUE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! End "Skipped" command processing - Process Schedule "16.990"
 *! Expect to see:
@@ -785,14 +785,14 @@
 *! Expect to see:
 *!    EVENT ID=45
 *! -------------------------------------
-1895 C000 0005 0500 0008 0000   ; Disable Activity Group Command
+e419 00c0 0500 0500 0008 0000   ; Disable Activity Group Command
 *
 *! Send Diagnostic Tlm Command
 *! Expect to see:
 *!    No Differences
 *!    EVENT ID=47
 *! -------------------------------------
-1895 C000 0001 0700   ; Send Diag Tlm Command
+e419 00c0 0100 0700   ; Send Diag Tlm Command
 *
 *! Housekeeping Request @ 17.990 secs
 *! Expect to see:
@@ -803,7 +803,7 @@
 *!    Minor Frames Since Tone Counter   = 99
 *!    Next Minor Frame Number           = 99
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule
 *! Expect to see:
@@ -820,7 +820,7 @@
 *!    Valid Major Frame Counter         = 18
 *!    Unexpected Major Frame Detected   = FALSE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule (should see APID 100) (Early Major Frame Signal)
 *! Expect to see:
@@ -841,7 +841,7 @@
 *!    Minor Frames Since Tone Counter   = 4
 *!    Unexpected Major Frame Detected   = TRUE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule (Early Major Frame Signal - Ignored)
 *! Expect to see:
@@ -864,7 +864,7 @@
 *!    Last Sync MET Slot Number         = 25
 *!    Major Frame is Ignored            = TRUE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule 
 *! Expect to see:
@@ -883,38 +883,38 @@
 *!    Last Sync MET Slot Number         = 0
 *!    Unexpected Major Frame Detected   = FALSE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Sync Command 
 *! Expect to see:
 *!    EVENT ID=46
 *! -------------------------------------
-1895 C000 0001 0600    ; Enable Sync Command
+e419 00c0 0100 0600    ; Enable Sync Command
 *
 *! Housekeeping Request
 *! Expect to see:
 *!    Command Counter                   = 38
 *!    Major Frame is Ignored            = FALSE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Enable Sync Command (Length Error)
 *! Expect to see:
 *!    EVENT ID=60
 *! -------------------------------------
-1895 C000 0003 0600 0102   ; Enable Sync Command
+e419 00c0 0300 0600 0102   ; Enable Sync Command
 *
 *! Housekeeping Request
 *! Expect to see:
 *!    Command Error Counter             = 16
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Send Diagnostic Tlm Command (Length Error)
 *! Expect to see:
 *!    EVENT ID=60
 *! -------------------------------------
-1895 C000 0003 0700 0102  ; Send Diag Tlm Command
+e419 00c0 0300 0700 0102  ; Send Diag Tlm Command
 *
 *! Process Schedule
 *! Expect to see:
@@ -931,7 +931,7 @@
 *!    Table Pass Counter                = 22
 *!    Valid Major Frame Counter         = 21
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 23.000
 *! Expect to see:
@@ -973,7 +973,7 @@
 *!    Valid Major Frame Counter         = 25
 *!    Missed Major Frame Counter        = 2
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 28.000
 *! Expect to see:
@@ -989,7 +989,7 @@
 *!    Table Pass Counter                = 28
 *!    Missed Major Frame Counter        = 3
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 29.000
 *! Expect to see:
@@ -1005,7 +1005,7 @@
 *!    Table Pass Counter                = 29
 *!    Missed Major Frame Counter        = 4
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 30.000
 *! Expect to see:
@@ -1021,7 +1021,7 @@
 *!    Table Pass Counter                = 30
 *!    Missed Major Frame Counter        = 5
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 31.000
 *! Expect to see:
@@ -1038,7 +1038,7 @@
 *!    Table Pass Counter                = 31
 *!    Missed Major Frame Counter        = 6
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 32.000 (Major Frame Signal Re-appears)
 *! Expect to see:
@@ -1061,7 +1061,7 @@
 *!    Next Minor Frame Number           = 50
 *!    Unexpected Major Frame Detected   = TRUE
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! End "Skipped" command processing - Process Schedule
 *! Expect to see:
@@ -1089,7 +1089,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 34.000
 *! Expect to see:
@@ -1119,7 +1119,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 35.000
 *! Expect to see:
@@ -1148,7 +1148,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 36.000
 *! Expect to see:
@@ -1178,7 +1178,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 37.000
 *! Expect to see:
@@ -1207,7 +1207,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 38.000
 *! Expect to see:
@@ -1236,7 +1236,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 39.000
 *! Expect to see:
@@ -1265,7 +1265,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 40.000
 *! Expect to see:
@@ -1294,7 +1294,7 @@
 *!    EVENT ID=31
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Process Schedule @ 41.000
 *! Expect to see:
@@ -1324,7 +1324,7 @@
 *!    EVENT ID=33
 *!    EVENT ID=96
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! SB SendMsg Error
 *! -----------------------------------------
@@ -1347,35 +1347,35 @@
 *!    Table Pass Counter                = 42
 *!    Valid Major Frame Counter         = 35
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Invalid Command ID Tests
 *! Expect to see:
 *!    EVENT ID=58 (x5)
 *! --------------------------------------------
-1895 C000 0001 0900    ; Bad Command ID
-1895 C000 0001 0A00    ; Bad Command ID
-1895 C000 0001 0B00    ; Bad Command ID
-1895 C000 0001 0C00    ; Bad Command ID
-1895 C000 0001 0D00    ; Bad Command ID
+e419 00c0 0100 0900    ; Bad Command ID
+e419 00c0 0100 0A00    ; Bad Command ID
+e419 00c0 0100 0B00    ; Bad Command ID
+e419 00c0 0100 0C00    ; Bad Command ID
+e419 00c0 0100 0D00    ; Bad Command ID
 *
 *! Housekeeping Request
 *! Expect to see:
 *!    Command Error Counter             = 22
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 *
 *! Invalid Message ID Test
 *! Expect to see:
 *!    EVENT ID=59
 *! --------------------------------------------
-FFFF C000 0001 0100    ; Bad Message ID
+FFFF 00c0 0100 0100    ; Bad Message ID
 *
 *! Housekeeping Request
 *! Expect to see:
 *!    No Changes
 *! --------------------
-1896 C000 0001 0000    ; Housekeeping Request
+e519 00c0 0100 0000    ; Housekeeping Request
 ;
 ; Force CFE_SB_RcvMsg to return CFE_SB_PIPE_RD_ERR 
 ; that will exit app (SHOULD BE LAST IN SCRIPT)
@@ -1388,7 +1388,7 @@ FFFF C000 0001 0100    ; Bad Message ID
 *!    EVENT ID=2
 *! -----------------------------------------
 @ SET_SB_RETURN_CODE 5 0xca000006
-1895 C000 0001 0000    ; NOOP Command
+e419 00c0 0100 0000    ; NOOP Command
 *
 *! ***END SCH SB COMMAND TESTING***
 *-------------------------------

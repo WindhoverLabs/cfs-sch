@@ -395,8 +395,8 @@ int32 SCH_AppPipe(CFE_SB_MsgPtr_t MessagePtr)
         */
         default:
             CFE_EVS_SendEvent(SCH_MD_ERR_EID, CFE_EVS_ERROR,
-                              "Msg with Invalid message ID Rcvd -- ID = 0x%04X",
-                              MessageID);
+                              "Msg with Invalid message ID Rcvd -- ID = 0x%04X   SCH_SEND_HK_MID = 0x%04X",
+                              MessageID, SCH_SEND_HK_MID);
             break;
     }
 

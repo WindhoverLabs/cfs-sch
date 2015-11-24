@@ -33,9 +33,9 @@
 **
 **************************************************************************/
 
-#include "../../../../../SCH/fsw/platform_inc/sch_msgids.h"
-#include "../../../../../SCH/fsw/platform_inc/sch_platform_cfg.h"
-#include "../../../../../SCH/fsw/src/sch_tbldefs.h"
+#include "sch_msgids.h"
+#include "sch_platform_cfg.h"
+#include "sch_tbldefs.h"
 #include "cfe.h"
 #include "cfe_tbl_filedef.h"
 #include "cfe_msgids.h"
@@ -95,21 +95,21 @@ SCH_MessageEntry_t SCH_DefaultMessageTable[SCH_MAX_MESSAGES] =
   { { SCH_UNUSED_MID } },
 
     /* command ID #1 */
-  { { 0x1901, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1901, 0xC000, 0x0001), 0x0000 } },
     /* command ID #2 */
-  { { 0x1902, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1902, 0xC000, 0x0001), 0x0000 } },
     /* command ID #3 */
-  { { 0x1903, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1903, 0xC000, 0x0001), 0x0000 } },
     /* command ID #4 */
-  { { 0x1904, 0xC000, 0x0001, 0x0000 } },  
+  { { SCH_FIX_HEADER(0x1904, 0xC000, 0x0001), 0x0000 } },
     /* command ID #5 */
-  { { 0x1905, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1905, 0xC000, 0x0001), 0x0000 } },
     /* command ID #6 */
-  { { 0x1906, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1906, 0xC000, 0x0001), 0x0000 } },
     /* command ID #7 */
-  { { 0x1907, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1907, 0xC000, 0x0001), 0x0000 } },
     /* command ID #8 */
-  { { 0x1900, 0xC000, 0x0001, 0x0000 } },
+  { { SCH_FIX_HEADER(0x1900, 0xC000, 0x0001), 0x0000 } },
     /* command ID #9 */
   { { SCH_UNUSED_MID } },
 
@@ -135,7 +135,7 @@ SCH_MessageEntry_t SCH_DefaultMessageTable[SCH_MAX_MESSAGES] =
   { { SCH_UNUSED_MID } },
 
     /* command ID #20 */
-  { { SCH_UNUSED_MID, 0, 0, 0, 0xC000, 0x0001 } },
+  { { SCH_FIX_HEADER(SCH_UNUSED_MID, 0, 0), 0, 0xC000, 0x0001 } },
     /* command ID #21 */
   { { SCH_UNUSED_MID } },
     /* command ID #22 */

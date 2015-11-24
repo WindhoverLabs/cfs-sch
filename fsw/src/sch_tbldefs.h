@@ -33,17 +33,18 @@
 #ifndef _sch_tbldefs_
 #define _sch_tbldefs_
 
+#include "cfe.h"
+
 /*************************************************************************
 **
 ** SCH table structure definitions
 **
 **************************************************************************/
 
-#define SCH_FIX_MID(x) \
-	((((x) & 0x00ff) << 8) + (((x) & 0xff00) >> 8))
-
-#define SCH_FIX_LEN(x) \
-	((((x) & 0x00ff) << 8) + (((x) & 0xff00) >> 8))
+#define SCH_FIX_HEADER(a,b,c) \
+	 (((a) & 0x00ff) << 8) + (((a) & 0xff00) >> 8), \
+	 (((b) & 0x00ff) << 8) + (((b) & 0xff00) >> 8), \
+	 (((c) & 0x00ff) << 8) + (((c) & 0xff00) >> 8)
 
 /*
 ** Schedule definition table entry

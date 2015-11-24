@@ -24,6 +24,8 @@ add_library(sch_def_schtbl STATIC ${TABLE_DIR}/sch_def_schtbl.c)
 set_target_properties(sch_def_msgtbl PROPERTIES PREFIX "" SUFFIX ".tbl")
 set_target_properties(sch_def_schtbl PROPERTIES PREFIX "" SUFFIX ".tbl")
 
+add_subdirectory(../unit_test unit_test)
+
 # Generate documentation
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
