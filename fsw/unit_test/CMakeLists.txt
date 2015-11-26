@@ -13,12 +13,7 @@ include_directories(
 
 add_definitions(-DCFE_LINUX)
 
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -W -Wshadow -Wunused-variable 
-	-Wunused-parameter -Wunused-function -Wunused -Wno-system-headers 
-	-Wno-deprecated -Woverloaded-virtual -Wwrite-strings -fprofile-arcs 
-	-ftest-coverage -m32")
-set(CMAKE_C_FLAGS "-g -O0 -Wall -W -fprofile-arcs -ftest-coverage -m32")
-set(CMAKE_EXE_LINKER_FLAGS "-lpthread")
+set(CMAKE_C_FLAGS "-g -O0 -Wformat=0 -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -fprofile-arcs -ftest-coverage -m32")
 
 # Add the executables
 add_executable(SCH-UT 
@@ -27,9 +22,15 @@ add_executable(SCH-UT
 		${APP_CUSTOM_SRC}
 		${UTF_SRC})
 target_link_libraries(SCH-UT -fprofile-arcs gcov ${CMAKE_THREAD_LIBS_INIT})
-add_test(sch-ut ${EXECUTABLE_OUTPUT_PATH}/SCH-UT)
 
-add_definitions(-fprofile-arcs -ftest-coverage)
+# We need to both run the test and compare the as-run with the expected output
+# with a diff command. 
+add_test(NAME sch-ut
+    COMMAND ${CMAKE_COMMAND}
+    	-DTEST_PROG=$<TARGET_FILE:SCH-UT>
+    	-DEXPECTED_OUTPUT=${UNIT_TEST_INPUT_DIR}/sch_utf_test.out
+    	-DACTUAL_OUTPUT=${CMAKE_CURRENT_BINARY_DIR}/sch_utf_test.out
+    -P ${CMAKE_CURRENT_SOURCE_DIR}/runtest.cmake)
 
 # Copy input files to build directory
 configure_file(${UNIT_TEST_INPUT_DIR}/sch_utf_cmds.in ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
