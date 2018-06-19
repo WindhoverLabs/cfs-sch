@@ -16,11 +16,11 @@ include_directories(${OSAL_INC_DIRS})
 include_directories(${PSP_INC_DIRS})
 	
 # Build application
-add_library(${APP_FILE} SHARED ${APP_SRC} ${APP_CUSTOM_SRC})
+add_app(${APP_FILE} SHARED ${APP_SRC} ${APP_CUSTOM_SRC})
 
 # Build tables
-add_library(sch_def_msgtbl STATIC ${TABLE_DIR}/sch_def_msgtbl.c)
-add_library(sch_def_schtbl STATIC ${TABLE_DIR}/sch_def_schtbl.c)
+add_app(sch_def_msgtbl STATIC ${TABLE_DIR}/sch_def_msgtbl.c)
+add_app(sch_def_schtbl STATIC ${TABLE_DIR}/sch_def_schtbl.c)
 set_target_properties(sch_def_msgtbl PROPERTIES PREFIX "" SUFFIX ".tbl")
 set_target_properties(sch_def_schtbl PROPERTIES PREFIX "" SUFFIX ".tbl")
 
